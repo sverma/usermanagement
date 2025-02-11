@@ -29,7 +29,7 @@ jobs:
   build:
     name: Build & Push Docker Image to ECR
     # Only run the build job on pushes (including tag pushes) to main.
-    if: github.event_name == 'push'
+    #if: github.event_name == 'push'
     needs: test
     runs-on: ubuntu-latest
     steps:
