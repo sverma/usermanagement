@@ -88,3 +88,29 @@ jobs:
           git add deployment.yaml
           git commit -m "Deploy my-app:${{ github.sha }} to dev"
           git push
+  deploy_stage:
+    name: Deploy to Stage
+    #if: github.event_name == 'push'
+    needs: deploy_dev
+    runs-on: ubuntu-latest
+    environment:
+      name: stage
+      #url: https://dev.example.com
+    steps:
+      - name: Checkout GitOps Repository
+        uses: actions/checkout@v2
+        with:
+          repository: sverma/gitops
+          token: ${{ secrets.GITOPS_TOKEN }}
+          #path: manifests
+
+      - name: Update Dev Manifest
+        working-directory: manifests/stage
+        run: |
+          echo "Updating dev manifest with new image tag..."
+          sed -i "s#image: .*usermanagement:.*#image: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/usermanagement:${{ github.sha }}#g" deployment.yaml
+          git config user.name "github-actions"
+          git config user.email "s@3w3.one"
+          git add deployment.yaml
+          git commit -m "Deploy my-app:${{ github.sha }} to dev"
+          git push
