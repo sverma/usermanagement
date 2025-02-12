@@ -76,7 +76,7 @@ jobs:
         with:
           repository: sverma/gitops
           token: ${{ secrets.GITOPS_TOKEN }}
-          path: manifests
+          #path: manifests
 
       - name: Update Dev Manifest
         working-directory: manifests/dev
