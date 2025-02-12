@@ -18,7 +18,7 @@ def get_next_user_id():
 # -------------------------------------
 @app.route('/usermanagement')
 def home():
-    return "Welcome to the Banking Platform - User Management API! Revision 2"
+    return "Welcome to the Banking Platform - User Management API! Revision 3"
 
 # -------------------------------------
 # Endpoint: List All Users
