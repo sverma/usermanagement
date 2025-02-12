@@ -13,7 +13,7 @@ class UserManagementTestCase(unittest.TestCase):
         banking_app.next_user_id = 1
 
     def test_home(self):
-        response = self.client.get('/')
+        response = self.client.get('/usermanagement')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Welcome to the Banking Platform - User Management API!", response.data)
 
