@@ -20,6 +20,10 @@ def get_next_user_id():
 def home():
     return "Welcome to the Banking Platform - User Management API! Revision 7"
 
+@app.route('/health')
+def health():
+    return "Okay"
+
 # -------------------------------------
 # Endpoint: List All Users
 # -------------------------------------
