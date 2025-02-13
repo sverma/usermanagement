@@ -18,9 +18,9 @@ def get_next_user_id():
 # -------------------------------------
 @app.route('/usermanagement')
 def home():
-    return "Welcome to the Banking Platform - User Management API! Revision 8"
+    return "Welcome to the Banking Platform - User Management API! Revision 9"
 
-@app.route('/health')
+@app.route('/usermanagement/health')
 def health():
     return "Okay"
 
